@@ -5,10 +5,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cardápio</title>
     <style>
-        body { font-family: Arial, sans-serif; padding: 20px; }
-        .product { display: flex; justify-content: space-between; margin-bottom: 10px; }
-        .cart { margin-top: 20px; padding: 10px; border: 1px solid #ccc; }
-        button { padding: 5px 10px; background-color: #007bff; color: #fff; border: none; cursor: pointer; }
+        body { 
+            font-family: Arial, sans-serif; 
+            padding: 20px; 
+            background-image: url('caminho-da-imagem-do-fundo.jpg'); /* Coloque o caminho da imagem aqui */
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+
+        h2, h3 {
+            text-align: center;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        .product { 
+            display: flex; 
+            justify-content: space-between; 
+            margin-bottom: 20px; 
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.5); 
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .product button {
+            padding: 5px 10px;
+            background-image: url('caminho-da-imagem-do-botao.png'); /* Coloque o caminho da imagem do botão aqui */
+            background-size: cover;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        .cart { 
+            margin-top: 20px; 
+            padding: 20px; 
+            border: 2px solid #fff; 
+            border-radius: 10px; 
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+
+        #cart-items li {
+            margin: 5px 0;
+        }
+
+        button {
+            padding: 10px 15px;
+            background-color: #ff9800;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #e68900;
+        }
     </style>
 </head>
 <body>
@@ -69,3 +125,4 @@
     </script>
 </body>
 </html>
+
