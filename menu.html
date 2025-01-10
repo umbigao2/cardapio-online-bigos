@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardápio</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .product { display: flex; justify-content: space-between; margin-bottom: 10px; }
+        .cart { margin-top: 20px; padding: 10px; border: 1px solid #ccc; }
+        button { padding: 5px 10px; background-color: #007bff; color: #fff; border: none; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h2>Bem-vindo, <span id="customer-name"></span></h2>
+    <p>Endereço: <span id="customer-address"></span></p>
+    <p>Referência: <span id="customer-reference"></span></p>
+
+    <h3>Cardápio</h3>
+    <div class="product">
+        <span>Produto 1</span>
+        <button onclick="addToCart('Produto 1', 10)">Adicionar - R$10</button>
+    </div>
+    <div class="product">
+        <span>Produto 2</span>
+        <button onclick="addToCart('Produto 2', 20)">Adicionar - R$20</button>
+    </div>
+
+    <div class="cart">
+        <h4>Carrinho</h4>
+        <ul id="cart-items"></ul>
+        <p>Total: R$<span id="cart-total">0</span></p>
+        <button onclick="finishOrder()">Finalizar Pedido</button>
+    </div>
+
+    <script>
+        const customerName = localStorage.getItem('customerName');
+        const customerAddress = localStorage.getItem('customerAddress');
+        const customerReference = localStorage.getItem('customerReference');
+
+        document.getElementById('customer-name').textContent = customerName;
+        document.getElementById('customer-address').textContent = customerAddress;
+        document.getElementById('customer-reference').textContent = customerReference;
+
+        let cart = [];
+        let total = 0;
+
+        function addToCart(product, price) {
+            cart.push({ product, price });
+            total += price;
+            renderCart();
+        }
+
+        function renderCart() {
+            const cartItems = document.getElementById('cart-items');
+            cartItems.innerHTML = '';
+            cart.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = `${item.product} - R$${item.price}`;
+                cartItems.appendChild(li);
+            });
+            document.getElementById('cart-total').textContent = total;
+        }
+
+        function finishOrder() {
+            alert('Pedido finalizado com sucesso!');
+            // Aqui você enviaria os dados para o servidor para impressão
+        }
+    </script>
+</body>
+</html>

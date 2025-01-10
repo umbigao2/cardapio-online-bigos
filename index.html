@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dados do Cliente</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        input { display: block; margin-bottom: 15px; padding: 10px; width: 100%; }
+        button { padding: 10px 20px; background-color: #28a745; color: #fff; border: none; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h2>Informe seus dados</h2>
+    <form id="customer-form">
+        <label for="name">Nome:</label>
+        <input type="text" id="name" required>
+        
+        <label for="address">Endereço:</label>
+        <input type="text" id="address" required>
+        
+        <label for="reference">Ponto de referência:</label>
+        <input type="text" id="reference" required>
+        
+        <button type="submit">Ir para o Cardápio</button>
+    </form>
+
+    <script>
+        document.getElementById('customer-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const address = document.getElementById('address').value;
+            const reference = document.getElementById('reference').value;
+
+            // Salva os dados no localStorage para usar na página do cardápio
+            localStorage.setItem('customerName', name);
+            localStorage.setItem('customerAddress', address);
+            localStorage.setItem('customerReference', reference);
+
+            // Redireciona para o cardápio
+            window.location.href = 'menu.html';
+        });
+    </script>
+</body>
+</html>
